@@ -14,6 +14,6 @@ User interface will be hosted on a local webserver.
 <h2>Data storage:</h2>
 Data will all be hosted locally and will periodically encrypt and backup to remote multi-cloud data repositories.
 
-<h2>Rough Idea of top level organization:</h2>
+<h2>Top level organization:</h2>
 
 ![top level organization](https://raw.githubusercontent.com/ace-jc/selfOS/main/images/sections.jpg)
