@@ -1,5 +1,5 @@
 0. design contact data-structure - DONE
-1. create new contact
+1. create new contact - DONE
 2. save contacts to authorized backend
 3. edit contact
 4. delete contact
@@ -7,9 +7,25 @@
 
 
 
+front end send this on a new contact create:
 {
 	"firstname": "Joaquin",
 	"lastname": "Casaubon",
+	"imageurl" : "url/to/image.jpg",
+	"phone": "3056096052",
+	"email": "jcasaubon@gmail.com",
+	"streetAddress" : "3400 Harmon Ave",
+	"aptNumber" :  "565",
+	"city" : "Austin",
+	"state": "TX",
+	"zipcode":  "78705"
+}
+
+Backend stored this way:
+{
+	"firstname": "Joaquin",
+	"lastname": "Casaubon",
+	"imageurl" : "url/to/image.jpg",
 	"phones": ["3056096052"],
 	"emails": ["jcasaubon@gmail.com"],
 	"addresses": [
@@ -19,7 +35,6 @@
 		 "state": "TX",
 		 "zipcode":  "78705"}
 	],
-	"imageurl" : "url/to/image.jpg"
 	"interactions" : [
 		{
 			"contactdatetime": "3/21/2021: 1:42am",

@@ -1,13 +1,15 @@
 .modal {
   font-size: 12px;
+  background: lightblue;
 }
 
 .header {
-  width: 200px;
+  width: auto;
   border-bottom: 1px solid gray;
   font-size: 18px;
   text-align: center;
   padding: 5px;
+  margin-bottom: 20px;
 }
 
 .content {
