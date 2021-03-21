@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Home from './categories/Home.js';
-import People from './categories/People.js';
+import People from './categories/People/People.js';
 import Finances from './categories/Finances.js';
 import Photos from './categories/Photos.js';
 import Calendar from './categories/Calendar.js';
