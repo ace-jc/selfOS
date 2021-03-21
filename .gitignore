@@ -22,3 +22,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+selfos-backend/.idea
+selfos-backend/.idea/**
+selfos-backend/venv
+selfos-backend/venv/**
