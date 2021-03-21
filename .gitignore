@@ -23,7 +23,13 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# no intellij
 selfos-backend/.idea
 selfos-backend/.idea/**
+
+# no virtual environment files
 selfos-backend/venv
 selfos-backend/venv/**
+
+# no pyc build files
+.pyc

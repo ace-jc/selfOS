@@ -44,21 +44,32 @@ function BasicForm(){
     setZipcode(event.target.value)
   };
 
+  function sendPOSTrequest(){
+    var data = new FormData();
+    const payload = {
+        firstname: firstname,
+        lastname: lastname,
+        imageurl: imageurl,
+        phone: phone,
+        email: email,
+        streetAddress: streetAddress,
+        aptNumber: aptNumber,
+        city: city,
+        state: state,
+        zipcode: zipcode
+    };
+    data.append("formData", JSON.stringify(payload));
+
+    fetch('http://localhost:5000/addPerson', {
+        method: 'POST',
+        body: data
+    })
+  }
+
 
   const handleSubmit = event => {
     event.preventDefault();
-    alert(`Your state values: \n
-            first name: ${firstname} \n
-            last name: ${lastname} \n
-            image url: ${imageurl} \n
-            phone: ${phone} \n
-            email: ${email} \n
-            streetAddress: ${streetAddress} \n
-            aptNumber: ${aptNumber} \n
-            city: ${city} \n
-            state: ${state} \n
-            zipcode: ${zipcode} \n
-            You can replace this alert with your process`);
+    sendPOSTrequest();
   };
 
   return (
