@@ -1,0 +1,26 @@
+.mainnav{
+  color: DodgerBlue;
+  padding: 50px;
+  font-family: Arial;
+  display: flex;
+  text-align: center;
+}
+
+
+.column-1{
+  width: 33%;
+}
+
+
+.column-2{
+  width: 33%
+}
+
+.column-3{
+  width: 33%
+}
+
+.category{
+  margin-bottom: 100px;
+  font-size: 33px;
+}
