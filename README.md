@@ -15,5 +15,6 @@ User interface will be hosted on a local webserver.
 Data will all be hosted locally and will periodically encrypt and backup to remote multi-cloud data repositories.
 
 <h2>Top level organization:</h2>
+Each category below contains functionality to organize this area. Some areas might be related and relationships between categories are automatically linked when possible. For example, pets taken to vet impact a calendar date, but also impact finance with some cost. This data graph will be further explained in later documentation.
 
 ![top level organization](https://raw.githubusercontent.com/ace-jc/selfOS/main/images/sections.png)
