@@ -16,4 +16,4 @@ Data will all be hosted locally and will periodically encrypt and backup to remo
 
 <h2>Top level organization:</h2>
 
-![top level organization](https://raw.githubusercontent.com/ace-jc/selfOS/main/images/sections.jpg)
+![top level organization](https://raw.githubusercontent.com/ace-jc/selfOS/main/images/sections.png)
