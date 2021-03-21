@@ -4,7 +4,7 @@ import "./Navigation.css";
 class Navigation extends React.Component{
 
   constructor(props) {
-  super(props)
+    super(props)
   this.state = {
     width: this.props.width,
     height: this.props.height,

@@ -5,8 +5,6 @@
 /selfos-ui/.pnp
 /selfos-ui/pnp.js
 /selfos-ui/node_modules
-/selfos-ui/package-lock.json
-/selfos-ui/package.json
 
 # testing
 /coverage
