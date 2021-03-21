@@ -1,6 +1,5 @@
 .mainnav{
   color: DodgerBlue;
-  padding: 50px;
   font-family: Arial;
   display: flex;
   text-align: center;
@@ -8,19 +7,16 @@
 
 
 .column-1{
-  width: 33%;
+  margin-top: 50px;
+  width: 15%;
 }
 
 
 .column-2{
-  width: 33%
+  width: 90%
 }
 
-.column-3{
-  width: 33%
-}
 
-.category{
-  margin-bottom: 100px;
-  font-size: 33px;
+.categoryItem{
+  font-size: 16px;
 }

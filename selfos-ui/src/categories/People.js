@@ -8,7 +8,9 @@ class People extends React.Component{
   }
 
   render(){
-    <div>people here</div>
+    return(
+      <div>inner people</div>
+    )
   }
 
 }
