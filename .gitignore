@@ -33,3 +33,7 @@ selfos-backend/venv/**
 
 # no pyc build files
 .pyc
+
+# not sending configurations
+selfos-backend/config/
+selfos-backend/config/**
