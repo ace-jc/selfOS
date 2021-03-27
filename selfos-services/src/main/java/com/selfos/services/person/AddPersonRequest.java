@@ -2,12 +2,15 @@ package com.selfos.services.person;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import org.springframework.lang.NonNull;
 
 import java.io.Serializable;
 
 public class AddPersonRequest implements Serializable {
 
+    @NonNull
     private String firstName;
+    @NonNull
     private String lastName;
     private String imageUrl;
     private String phone;
@@ -125,7 +128,7 @@ public class AddPersonRequest implements Serializable {
                 ", aptNumber='" + aptNumber + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
-                ", zipcode='" + zipCode + '\'' +
+                ", zipCode='" + zipCode + '\'' +
                 '}';
     }
 
@@ -134,7 +137,7 @@ public class AddPersonRequest implements Serializable {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectNode tempObj = objectMapper.createObjectNode();
         tempObj.put("firstName", this.firstName);
-        tempObj.put("lastname", this.lastName);
+        tempObj.put("lastName", this.lastName);
         tempObj.put("imageUrl", this.imageUrl);
         tempObj.put("phone", this.phone);
         tempObj.put("email", this.email);
@@ -142,7 +145,7 @@ public class AddPersonRequest implements Serializable {
         tempObj.put("aptNumber", this.aptNumber);
         tempObj.put("city", this.city);
         tempObj.put("state", this.state);
-        tempObj.put("zipcode", this.zipCode);
+        tempObj.put("zipCode", this.zipCode);
         return tempObj;
     }
 }

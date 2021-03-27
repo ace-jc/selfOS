@@ -5,6 +5,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 public interface Icontroller {
 
     /**
@@ -13,6 +15,6 @@ public interface Icontroller {
     @CrossOrigin
     @PostMapping(value = {"/addPerson", "/addperson"},
             produces = {MediaType.APPLICATION_JSON_VALUE})
-    ResponseEntity addPerson(@RequestBody AddPersonRequest addPersonRequest);
+    ResponseEntity addPerson(@Valid @RequestBody AddPersonRequest addPersonRequest);
 
 }

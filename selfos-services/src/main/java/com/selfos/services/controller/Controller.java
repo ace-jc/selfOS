@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 
 @RestController
 public class Controller implements Icontroller {
@@ -15,7 +17,7 @@ public class Controller implements Icontroller {
     private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 
     @Override
-    public ResponseEntity addPerson(@RequestBody AddPersonRequest addPersonRequest) {
+    public ResponseEntity addPerson(@Valid @RequestBody AddPersonRequest addPersonRequest) {
         // ensure we have a valid request
         logger.debug(addPersonRequest.toString());
         return new ResponseEntity("got it", HttpStatus.OK);
