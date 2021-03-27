@@ -45,24 +45,29 @@ function BasicForm(){
   };
 
   function sendPOSTrequest(){
-    var data = new FormData();
-    const payload = {
-        firstname: firstname,
-        lastname: lastname,
-        imageurl: imageurl,
+    let payload = {
+        firstName: firstname,
+        lastName: lastname,
+        imageUrl: imageurl,
         phone: phone,
         email: email,
         streetAddress: streetAddress,
         aptNumber: aptNumber,
         city: city,
         state: state,
-        zipcode: zipcode
+        zipCode: zipcode
     };
-    data.append("formData", JSON.stringify(payload));
 
-    fetch('http://localhost:5000/addPerson', {
+    const headers = new Headers({
+    "Content-Type": "application/json",
+    "Content-Length": JSON.stringify(payload).length
+})
+
+
+    fetch('http://localhost:8080/addPerson', {
         method: 'POST',
-        body: data
+        headers: headers,
+        body: JSON.stringify(payload)
     })
   }
 

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.selfos.services.controller.ControllerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.192 s - in com.selfos.services.controller.ControllerTest
