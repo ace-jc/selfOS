@@ -37,3 +37,6 @@ selfos-backend/venv/**
 # not sending configurations
 selfos-backend/config/
 selfos-backend/config/**
+
+# not sending target directories from java
+*/target/*
