@@ -1,0 +1,6 @@
+# mongo connection
+spring:
+  data:
+    mongodb:
+      database: selfOS
+      port: 27017

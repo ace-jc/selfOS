@@ -25,9 +25,9 @@ public class ControllerTest {
     @Test
     public void addTestPersonToContacts()
             throws Exception {
-        AddPersonRequest addPersonRequest = new AddPersonRequest("Lionel", "Messi", "",
-                "3326667777", "billy@bob.com", "1307 Kirkwood Rd", "",
-                "Boston", "TX", "44555");
+        AddPersonRequest addPersonRequest = new AddPersonRequest(null, "Lionel", "Messi",
+                "", "3326667777", "billy@bob.com", "3333 Kirkwood Ln",
+                "", "Boston", "TX", "44555");
 
         mockMvc.perform(MockMvcRequestBuilders
                 .post("/addPerson")
@@ -40,7 +40,7 @@ public class ControllerTest {
 //    public void addTestPersonToContactsWithANullRequiredField()
 //            throws Exception {
 //        AddPersonRequest addPersonRequest = new AddPersonRequest(null, "Jameson", "",
-//                "7706667777", "billy@bob.com", "1307 Kirkwood Rd", "",
+//                "7706667777", "billy@bob.com", "555 East Rd", "",
 //                "Cape Coral", "TX", "77666");
 //
 //        mockMvc.perform(MockMvcRequestBuilders

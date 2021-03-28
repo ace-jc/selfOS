@@ -2,12 +2,17 @@ package com.selfos.services.person;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.lang.NonNull;
 
 import java.io.Serializable;
 
+@Document(collection = "People")
 public class AddPersonRequest implements Serializable {
 
+    @Id
+    private String id;
     @NonNull
     private String firstName;
     @NonNull
@@ -21,8 +26,14 @@ public class AddPersonRequest implements Serializable {
     private String state;
     private String zipCode;
 
-    public AddPersonRequest(String firstName, String lastName, String imageUrl, String phone, String email,
+
+    public AddPersonRequest() {
+    }
+
+
+    public AddPersonRequest(String id, String firstName, String lastName, String imageUrl, String phone, String email,
                             String streetAddress, String aptNumber, String city, String state, String zipCode) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.imageUrl = imageUrl;
@@ -35,6 +46,13 @@ public class AddPersonRequest implements Serializable {
         this.zipCode = zipCode;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -119,6 +137,7 @@ public class AddPersonRequest implements Serializable {
     @Override
     public String toString() {
         return "AddPersonRequest{" +
+                "id='" + id + '\'' +
                 "firstName='" + firstName + '\'' +
                 ", lastname='" + lastName + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
@@ -133,9 +152,10 @@ public class AddPersonRequest implements Serializable {
     }
 
 
-    public ObjectNode serialize(){
+    public ObjectNode serialize() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectNode tempObj = objectMapper.createObjectNode();
+        tempObj.put("id", this.id);
         tempObj.put("firstName", this.firstName);
         tempObj.put("lastName", this.lastName);
         tempObj.put("imageUrl", this.imageUrl);
