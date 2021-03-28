@@ -2,6 +2,8 @@ package com.selfos.services.controller;
 
 import com.selfos.services.person.AddPersonRequest;
 import com.selfos.services.person.ProcessAddPerson;
+import com.selfos.services.utils.Constants;
+import com.selfos.services.utils.Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,14 +24,22 @@ public class Controller implements Icontroller {
 
     @Override
     public ResponseEntity addPerson(@Valid @RequestBody AddPersonRequest addPersonRequest) {
-        // ensure request is valid
+        try {
+            // ensure request is valid
+            if (!this.processAddPerson.ensureValidPerson(addPersonRequest)) {
+                // invalid request
+                return new ResponseEntity(
+                        Utils.result("missing first or last name"), HttpStatus.BAD_REQUEST);
+            }
 
+            // process adding person to people db
+            this.processAddPerson.processAddingAPerson(addPersonRequest);
 
-        // process adding person to people db
-        this.processAddPerson.processAddingAPerson(addPersonRequest);
-
-
-        return new ResponseEntity("got it", HttpStatus.OK);
+            return new ResponseEntity(Utils.result(Constants.RECEIVED), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity(
+                    Utils.result("error 3248173"), HttpStatus.BAD_REQUEST);
+        }
     }
 
 }
