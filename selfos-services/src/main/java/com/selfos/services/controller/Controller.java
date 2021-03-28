@@ -1,8 +1,7 @@
 package com.selfos.services.controller;
 
-import com.selfos.services.person.AddPersonRequest;
-import com.selfos.services.person.ProcessAddPerson;
-import com.selfos.services.utils.Constants;
+import com.selfos.services.people.AddPeopleRequest;
+import com.selfos.services.people.ProcessAddPerson;
 import com.selfos.services.utils.Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,21 +21,28 @@ public class Controller implements Icontroller {
     @Autowired
     private ProcessAddPerson processAddPerson;
 
+
     @Override
-    public ResponseEntity addPerson(@Valid @RequestBody AddPersonRequest addPersonRequest) {
+    public ResponseEntity addPerson(@Valid @RequestBody AddPeopleRequest addPeopleRequest) {
         try {
             // ensure request is valid
-            if (!this.processAddPerson.ensureValidPerson(addPersonRequest)) {
+            if (!this.processAddPerson.ensureValidPerson(addPeopleRequest)) {
                 // invalid request
                 return new ResponseEntity(
                         Utils.result("missing first or last name"), HttpStatus.BAD_REQUEST);
             }
             // process adding person to people db
-            return this.processAddPerson.processAddingAPerson(addPersonRequest);
+            return this.processAddPerson.processAddingAPerson(addPeopleRequest);
         } catch (Exception e) {
-            return new ResponseEntity(
-                    Utils.result("error 3248173"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(Utils.result("error 3248173"), HttpStatus.BAD_REQUEST);
         }
     }
+
+
+    @Override
+    public ResponseEntity<String> getAllPeople() {
+        return new ResponseEntity(Utils.result("error 3452664"), HttpStatus.BAD_REQUEST);
+    }
+
 
 }

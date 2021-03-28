@@ -1,4 +1,4 @@
-package com.selfos.services.person;
+package com.selfos.services.people;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -19,60 +19,60 @@ public class ProcessAddPersonTest {
     @Test
     public void makeAMockedMongoSaveCall() {
         // create record to add
-        AddPersonRequest addPersonRequest = new AddPersonRequest(null, "Lionel", "Messi",
+        AddPeopleRequest addPeopleRequest = new AddPeopleRequest(null, "Lionel", "Messi",
                 "", "3326667777", "billy@bob.com", "3333 Kirkwood Ln",
                 "", "Boston", "TX", "44555");
         // mock the repository
         AddPersonRequestMongoRepository addPersonRequestMongoRepository =
                 Mockito.mock(AddPersonRequestMongoRepository.class);
-        Mockito.when(addPersonRequestMongoRepository.save(any(AddPersonRequest.class)))
+        Mockito.when(addPersonRequestMongoRepository.save(any(AddPeopleRequest.class)))
                 .thenReturn(null);
         // build the object of the class we are testing
         ProcessAddPerson processAddPerson = new ProcessAddPerson(addPersonRequestMongoRepository);
         // make the mocked call
-        processAddPerson.processAddingAPerson(addPersonRequest);
+        processAddPerson.processAddingAPerson(addPeopleRequest);
     }
 
 
     @Test
     public void ensureValidPersonCalculation() {
         // create person to be validated
-        AddPersonRequest addPersonRequest = new AddPersonRequest(null, "Lionel", "Messi",
+        AddPeopleRequest addPeopleRequest = new AddPeopleRequest(null, "Lionel", "Messi",
                 null, null, null, null, null, null,
                 null, null);
         ProcessAddPerson processAddPerson = new ProcessAddPerson();
-        assert(processAddPerson.ensureValidPerson(addPersonRequest));
+        assert(processAddPerson.ensureValidPerson(addPeopleRequest));
     }
 
 
     @Test
     public void ensureInvalidPersonCalculationFirstNameNull() {
         // create person to be validated
-        AddPersonRequest addPersonRequest = new AddPersonRequest(null, null, "Messi",
+        AddPeopleRequest addPeopleRequest = new AddPeopleRequest(null, null, "Messi",
                 null, null, null, null, null, null,
                 null, null);
         ProcessAddPerson processAddPerson = new ProcessAddPerson();
-        assert(!processAddPerson.ensureValidPerson(addPersonRequest));
+        assert(!processAddPerson.ensureValidPerson(addPeopleRequest));
     }
 
     @Test
     public void ensureInvalidPersonCalculationLastNameNull() {
         // create person to be validated
-        AddPersonRequest addPersonRequest = new AddPersonRequest(null, "Lionel", null,
+        AddPeopleRequest addPeopleRequest = new AddPeopleRequest(null, "Lionel", null,
                 null, null, null, null, null, null,
                 null, null);
         ProcessAddPerson processAddPerson = new ProcessAddPerson();
-        assert(!processAddPerson.ensureValidPerson(addPersonRequest));
+        assert(!processAddPerson.ensureValidPerson(addPeopleRequest));
     }
 
 
     @Test
     public void ensureInvalidPersonCalculationFirstAndLastNameNull() {
         // create person to be validated
-        AddPersonRequest addPersonRequest = new AddPersonRequest(null, null, null,
+        AddPeopleRequest addPeopleRequest = new AddPeopleRequest(null, null, null,
                 null, null, null, null, null, null,
                 null, null);
         ProcessAddPerson processAddPerson = new ProcessAddPerson();
-        assert(!processAddPerson.ensureValidPerson(addPersonRequest));
+        assert(!processAddPerson.ensureValidPerson(addPeopleRequest));
     }
 }

@@ -1,4 +1,4 @@
-package com.selfos.services.person;
+package com.selfos.services.people;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -9,7 +9,7 @@ import org.springframework.lang.NonNull;
 import java.io.Serializable;
 
 @Document(collection = "People")
-public class AddPersonRequest implements Serializable {
+public class AddPeopleRequest implements Serializable {
 
     @Id
     private String id;
@@ -27,11 +27,11 @@ public class AddPersonRequest implements Serializable {
     private String zipCode;
 
 
-    public AddPersonRequest() {
+    public AddPeopleRequest() {
     }
 
 
-    public AddPersonRequest(String id, String firstName, String lastName, String imageUrl, String phone, String email,
+    public AddPeopleRequest(String id, String firstName, String lastName, String imageUrl, String phone, String email,
                             String streetAddress, String aptNumber, String city, String state, String zipCode) {
         this.id = id;
         this.firstName = firstName;

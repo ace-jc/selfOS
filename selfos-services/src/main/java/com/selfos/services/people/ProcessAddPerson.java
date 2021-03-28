@@ -1,4 +1,4 @@
-package com.selfos.services.person;
+package com.selfos.services.people;
 
 import com.selfos.services.utils.Constants;
 import com.selfos.services.utils.Utils;
@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 public class ProcessAddPerson {
@@ -35,9 +33,9 @@ public class ProcessAddPerson {
     /**
      * ensure we have a valid request
      */
-    public boolean ensureValidPerson(AddPersonRequest addPersonRequest) {
+    public boolean ensureValidPerson(AddPeopleRequest addPeopleRequest) {
         // ensure we have first and last names
-        if (addPersonRequest.getFirstName() == null || addPersonRequest.getLastName() == null) {
+        if (addPeopleRequest.getFirstName() == null || addPeopleRequest.getLastName() == null) {
             return false;
         }
         return true;
@@ -46,15 +44,15 @@ public class ProcessAddPerson {
     /**
      * process the addition of a person
      */
-    public ResponseEntity<String> processAddingAPerson(AddPersonRequest addPersonRequest) {
+    public ResponseEntity<String> processAddingAPerson(AddPeopleRequest addPeopleRequest) {
         // check if person being added already exists
-        if (personAlreadyExists(addPersonRequest)) {
+        if (personAlreadyExists(addPeopleRequest)) {
             // return user already exists
             logger.info("user already exists");
             return new ResponseEntity(Utils.result(Constants.USER_ALREADY_EXISTS), HttpStatus.BAD_REQUEST);
         } else {
             // record should be saved..
-            this.addPersonRequestMongoRepository.save(addPersonRequest);
+            this.addPersonRequestMongoRepository.save(addPeopleRequest);
             return new ResponseEntity(Utils.result(Constants.RECEIVED), HttpStatus.OK);
         }
     }
@@ -63,13 +61,13 @@ public class ProcessAddPerson {
     /**
      * queries db and checks if person's first name and last name already exist..
      */
-    private boolean personAlreadyExists(AddPersonRequest addPersonRequest) {
+    private boolean personAlreadyExists(AddPeopleRequest addPeopleRequest) {
         // query db for this user
-        AddPersonRequest matchingEntry =
+        AddPeopleRequest matchingEntry =
                 this.addPersonRequestMongoRepository
                         .findPersonByFirstAndLastName(
-                                addPersonRequest.getFirstName(),
-                                addPersonRequest.getLastName());
+                                addPeopleRequest.getFirstName(),
+                                addPeopleRequest.getLastName());
         // if the value returned is null.. the value did not exist..
         if(matchingEntry == null){
             return false;

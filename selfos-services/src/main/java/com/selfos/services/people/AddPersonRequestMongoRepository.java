@@ -1,12 +1,12 @@
-package com.selfos.services.person;
+package com.selfos.services.people;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
-public interface AddPersonRequestMongoRepository extends MongoRepository<AddPersonRequest, String> {
+public interface AddPersonRequestMongoRepository extends MongoRepository<AddPeopleRequest, String> {
 
     @Query(value = "{'firstName' : ?0, 'lastName' : ?1}")
-    AddPersonRequest findPersonByFirstAndLastName(String firstName, String lastName);
+    AddPeopleRequest findPersonByFirstAndLastName(String firstName, String lastName);
 
 
     //    should have the following available:
