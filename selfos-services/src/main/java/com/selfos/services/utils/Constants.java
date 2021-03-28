@@ -2,6 +2,7 @@ package com.selfos.services.utils;
 
 public interface Constants {
 
-    public String RESULT = "result";
-    public String RECEIVED = "received";
+    String RESULT = "result";
+    String RECEIVED = "received";
+    String USER_ALREADY_EXISTS = "user already exists";
 }

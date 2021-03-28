@@ -31,11 +31,8 @@ public class Controller implements Icontroller {
                 return new ResponseEntity(
                         Utils.result("missing first or last name"), HttpStatus.BAD_REQUEST);
             }
-
             // process adding person to people db
-            this.processAddPerson.processAddingAPerson(addPersonRequest);
-
-            return new ResponseEntity(Utils.result(Constants.RECEIVED), HttpStatus.OK);
+            return this.processAddPerson.processAddingAPerson(addPersonRequest);
         } catch (Exception e) {
             return new ResponseEntity(
                     Utils.result("error 3248173"), HttpStatus.BAD_REQUEST);
