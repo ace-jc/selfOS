@@ -22,8 +22,12 @@ public class Controller implements Icontroller {
 
     @Override
     public ResponseEntity addPerson(@Valid @RequestBody AddPersonRequest addPersonRequest) {
+        // ensure request is valid
 
+
+        // process adding person to people db
         this.processAddPerson.processAddingAPerson(addPersonRequest);
+
 
         return new ResponseEntity("got it", HttpStatus.OK);
     }
