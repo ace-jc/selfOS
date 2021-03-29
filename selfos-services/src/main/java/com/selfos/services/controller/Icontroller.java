@@ -21,7 +21,7 @@ public interface Icontroller {
     /**
      * will return all the people
      * */
-    @GetMapping(value = {"/getPeople", "/getpeople"})
+    @GetMapping(value = {"/getAllPeople", "/getallpeople"})
     ResponseEntity<String> getAllPeople();
 
 

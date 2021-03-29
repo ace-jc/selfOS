@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 public class Controller implements Icontroller {
@@ -41,7 +42,13 @@ public class Controller implements Icontroller {
 
     @Override
     public ResponseEntity<String> getAllPeople() {
-        return new ResponseEntity(Utils.result("error 3452664"), HttpStatus.BAD_REQUEST);
+        try {
+            List<AddPeopleRequest> listOfAllPeople = this.processAddPerson.getAllPeople();
+            logger.info("the list of all people is: {}", listOfAllPeople);
+            return new ResponseEntity(listOfAllPeople, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity(Utils.result("error 3452664"), HttpStatus.BAD_REQUEST);
+        }
     }
 
 

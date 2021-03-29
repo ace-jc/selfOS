@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class ProcessAddPerson {
 
@@ -69,11 +71,19 @@ public class ProcessAddPerson {
                                 addPeopleRequest.getFirstName(),
                                 addPeopleRequest.getLastName());
         // if the value returned is null.. the value did not exist..
-        if(matchingEntry == null){
+        if (matchingEntry == null) {
             return false;
-        }else{
+        } else {
             return true;
         }
+    }
+
+
+    /**
+     * will return a list of all the people in the db
+     */
+    public List<AddPeopleRequest> getAllPeople() {
+        return this.addPersonRequestMongoRepository.findAll();
     }
 
 }
