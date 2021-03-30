@@ -1,34 +1,44 @@
 import React from 'react';
 
 
-async function sendGetForAllPeople(){
-  const response = await fetch('http://localhost:8080/getAllPeople', {});
-  const json = await response.json();
-  return json;
-}
-
-
 class ExistingPeople extends React.Component{
 
   constructor(props){
     super(props)
-    this.state = {
-      totalReactPackages: null
-    };
+    this.state = { data: [] };
+  }
+
+  componentDidMount() {
+     fetch('http://localhost:8080/getAllPeople')
+      .then(res => res.json())
+      .then(json => this.setState({ data: json }));
   }
 
   render(){
-    var incomingResponse;
-    sendGetForAllPeople().then(response => {
-      incomingResponse = response;
-      console.log(incomingResponse);
-    });
-
-    return(
-      <div>
-        {incomingResponse}
-      </div>
-    )
+    console.log(this.state.data)
+    if (this.state.data === null) {
+      return null
+    }else{
+      return(
+        <div>
+          {this.state.data.map(home =>
+            <div>
+            {home.firstName}
+            {home.lastName}
+            {home.city}
+            {home.aptNumber}
+            {home.email}
+            {home.id}
+            {home.imageUrl}
+            {home.phone}
+            {home.state}
+            {home.streetAddress}
+            {home.zipCode}
+            {home.lastName}
+            {home.lastName}
+            </div>)} </div>
+      )
+    }
   }
 
 }
