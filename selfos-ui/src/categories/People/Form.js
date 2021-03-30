@@ -59,9 +59,9 @@ function BasicForm(){
     };
 
     const headers = new Headers({
-    "Content-Type": "application/json",
-    "Content-Length": JSON.stringify(payload).length
-})
+      "Content-Type": "application/json",
+      "Content-Length": JSON.stringify(payload).length
+    })
 
 
     fetch('http://localhost:8080/addPerson', {

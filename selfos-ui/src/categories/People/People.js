@@ -2,7 +2,7 @@ import React from 'react';
 import Popup from 'reactjs-popup';
 import "./People.css";
 import Form from './Form.js';
-
+import ExistingPeople from './ExistingPeople.js';
 
 
 class People extends React.Component{
@@ -14,19 +14,24 @@ class People extends React.Component{
   render(){
     return(
       <div>
-        <Popup
-          trigger={<button className="button"> Create New Contact </button>}
-          modal>
-          {close => (
-            <div className="modal">
-              <button className="close" onClick={close}>
-                &times;
-              </button>
-              <div className="header">New contact</div>
-              <Form/>
-            </div>
-          )}
-        </Popup>
+        <div>
+          <Popup
+            trigger={<button className="button"> Create New Contact </button>}
+            modal>
+            {close => (
+              <div className="modal">
+                <button className="close" onClick={close}>
+                  &times;
+                </button>
+                <div className="header">New contact</div>
+                <Form/>
+              </div>
+            )}
+          </Popup>
+        </div>
+        <div>
+          <ExistingPeople />
+        </div>
       </div>
     )
   }
