@@ -1,7 +1,7 @@
 import React from 'react';
 
 import "./Person.css";
-
+import person from './contact.png';
 
 class Person extends React.Component{
 
@@ -11,7 +11,12 @@ class Person extends React.Component{
 
   render(){
     console.log(this.props.value);
-    return(<div class="person">{this.props.value.lastName}</div>)
+    return(
+            <div class="person">
+              <span class="span"><img class="img" src={person} /></span>
+              <span>{this.props.value.firstName} {this.props.value.lastName}</span>
+            </div>
+          )
   }
 
   //           {home.firstName}
