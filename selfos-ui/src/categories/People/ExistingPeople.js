@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Person from './Person.js';
 
 class ExistingPeople extends React.Component{
 
@@ -15,29 +16,10 @@ class ExistingPeople extends React.Component{
   }
 
   render(){
-    console.log(this.state.data)
-    if (this.state.data === null) {
-      return null
+    if (this.state.data.length == 0) {
+      return null;
     }else{
-      return(
-        <div>
-          {this.state.data.map(home =>
-            <div>
-            {home.firstName}
-            {home.lastName}
-            {home.city}
-            {home.aptNumber}
-            {home.email}
-            {home.id}
-            {home.imageUrl}
-            {home.phone}
-            {home.state}
-            {home.streetAddress}
-            {home.zipCode}
-            {home.lastName}
-            {home.lastName}
-            </div>)} </div>
-      )
+      return(<Person value={this.state.data}/>)
     }
   }
 
