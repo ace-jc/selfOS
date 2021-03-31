@@ -2,7 +2,7 @@
   display: inline-block;
   width: 150px;
   height: 150px;
-  margin: 10px;
-  background-color: black;
+  margin: 5px;
+  background-color: rgb(145, 158, 171);
   border-radius: 5px;
 }

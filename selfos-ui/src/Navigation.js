@@ -25,7 +25,6 @@ class Navigation extends React.Component{
   this.state = {
     width: this.props.width,
     height: this.props.height,
-    hover: false,
   };
 }
 

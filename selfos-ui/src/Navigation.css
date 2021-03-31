@@ -1,20 +1,59 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
 .mainnav{
-  color: DodgerBlue;
-  font-family: Arial;
+  color: White;
+  font-family: "Arial Bold";
   display: flex;
   text-align: center;
+  background-color: rgb(34, 43, 54);
+  height: 100%;
 }
 
 
 .column-1{
-  margin-top: 10px;
-  width: 15%;
+  width: 250px;
+  min-width: 64px;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0px;
+  border: 0px;
+  margin: 0px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 0.875rem;
+  line-height: 1.75;
+  border-radius: 16px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: rgb(104, 142, 255);
+  font-weight: 700;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 12px 8px 12px 16px;
+  text-transform: none;
 }
 
 
 .column-2{
+  width: 1286px;
   margin-top: 20px;
-  width: 90%
 }
 
 
