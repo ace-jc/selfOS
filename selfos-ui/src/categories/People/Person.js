@@ -1,5 +1,7 @@
 import React from 'react';
 
+import "./Person.css";
+
 
 class Person extends React.Component{
 
@@ -8,13 +10,8 @@ class Person extends React.Component{
   }
 
   render(){
-
-    this.props.value.forEach((entry) => {
-      console.log(entry.firstName)
-      console.log(entry.lastName)
-    });
-
-    return(<div>b</div>)
+    console.log(this.props.value);
+    return(<div class="person">{this.props.value.lastName}</div>)
   }
 
 }

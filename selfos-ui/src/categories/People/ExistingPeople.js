@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Person from './Person.js';
+import "./ExistingPeople.css";
 
 class ExistingPeople extends React.Component{
 
@@ -19,7 +20,14 @@ class ExistingPeople extends React.Component{
     if (this.state.data.length == 0) {
       return null;
     }else{
-      return(<Person value={this.state.data}/>)
+      // will contain all of the users
+      var allRows = [];
+
+      this.state.data.forEach((item) => {
+        allRows.push(<Person value={item}/>);
+      });
+
+      return(<div class="individuals">{allRows}</div>)
     }
   }
 
