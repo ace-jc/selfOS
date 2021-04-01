@@ -3,6 +3,8 @@ import React from 'react';
 import "./Person.css";
 import person from './contact.png';
 
+
+
 class Person extends React.Component{
 
   constructor(props){
@@ -10,13 +12,22 @@ class Person extends React.Component{
   }
 
   render(){
-    console.log(this.props.value);
-    return(
-            <div class="person">
-              <span class="span"><img class="img" src={person} /></span>
-              <span>{this.props.value.firstName} {this.props.value.lastName}</span>
-            </div>
-          )
+    // ensure we have image URL otherwise return the default imageUrl
+    if(this.props.value.imageUrl == null || this.props.value.imageUrl == ""){
+      return(
+        <div class="person">
+          <span class="span"><img class="img" src={person} /></span>
+          <span>{this.props.value.firstName} {this.props.value.lastName}</span>
+        </div>
+      )
+    }else{
+      return(
+        <div class="person">
+          <span class="span"><img class="img" src={this.props.value.imageUrl} /></span>
+          <span>{this.props.value.firstName} {this.props.value.lastName}</span>
+        </div>
+      )
+    }
   }
 
   //           {home.firstName}

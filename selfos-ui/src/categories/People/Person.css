@@ -7,6 +7,10 @@
   border-radius: 5px;
 }
 
+.person:hover {
+  background-color: rgb(170, 180, 200);
+}
+
 .img {
   margin-top: 5px;
   max-width: 80%;
