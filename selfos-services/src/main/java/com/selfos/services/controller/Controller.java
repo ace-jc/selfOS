@@ -44,7 +44,7 @@ public class Controller implements Icontroller {
     public ResponseEntity<String> getAllPeople() {
         try {
             List<AddPeopleRequest> listOfAllPeople = this.processAddPerson.getAllPeople();
-            logger.info("the list of all people is: {}", listOfAllPeople);
+            logger.debug("the list of all people is: {}", listOfAllPeople);
             return new ResponseEntity(listOfAllPeople, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity(Utils.result("error 3452664"), HttpStatus.BAD_REQUEST);
